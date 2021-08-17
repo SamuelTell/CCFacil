@@ -785,4 +785,4 @@ root.mainloop()
 # nao precisa entrar em python
 # -F cria um arquivo unico
 # -w (--windowed, --noconsole) não abre o prompt e roda em janela
-# set PYTHONOPTIMIZE=1 && pyinstaller -w -F CCFacil099_2_4.py
+# set PYTHONOPTIMIZE=1 && pyinstaller -w -F main.py
