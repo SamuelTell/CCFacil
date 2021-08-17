@@ -15,20 +15,19 @@ from datetime import timedelta
 ### com a nota musical e avisar que um erro aconteceu.
 
 ##### TODO
-### 2 - [ ] box para selecionar tipo de quebra de linha, se por ponto ou padrão
-###         útil para quando tem mais de uma pessoa falando. Reconstruir o texto todo, e onde houver
-###         nova linha dupla ou tripla pula para a próxima letra ou palavra.
-### 3 - [X] criar novo método de gerar tempos dos CCs: por quantidade de caracteres. v2
-### 4 - [ ] aba que exibe último CC gerado? pode gerar confusão por não poder ser editado.
-### 5 - [ ] novo método/formato (EBU STL) de export para ser compativel com Media Composer.
-### 6 - [ ] CTRL + Z  ??? como fazer? uma matriz que salve todas as ações. As variáveis serão globais?
-### 7 - [ ] criar tooltips para todos os botoes - https://github.com/PedroHenriques/Tkinter_ToolTips
-### 8 - [X] adicionar sempre um espaco apos cada pontuacao -  ele não saberia diferenciar sites
-### 9 - [ ] corrigir divisao por em 'zero duracao_cc = (duracao_video - (4 * segundo)) / (len_lista - 3)'
-### 10- [ ] opcao para já receber o texto quebrado em linhas sempre que outra pessoa falar.
+### 01 - [ ] box para selecionar tipo de quebra de linha, se por ponto ou padrão
+###          útil para quando tem mais de uma pessoa falando. Reconstruir o texto todo, e onde houver
+###          nova linha dupla ou tripla pula para a próxima letra ou palavra.
+### 02 - [X] criar novo método de gerar tempos dos CCs: por quantidade de caracteres. v2
+### 03 - [ ] aba que exibe último CC gerado? pode gerar confusão por não poder ser editado.
+### 04 - [ ] novo método/formato (EBU STL) de export para ser compativel com Media Composer.
+### 05 - [ ] criar tooltips para todos os botoes - https://github.com/PedroHenriques/Tkinter_ToolTips
+### 06 - [X] adicionar sempre um espaco apos cada pontuacao -  ele não saberia diferenciar sites
+### 07 - [ ] corrigir divisao por em 'zero duracao_cc = (duracao_video - (4 * segundo)) / (len_lista - 3)'
+### 08 - [ ] opcao para já receber o texto quebrado em linhas sempre que outra pessoa falar.
 
 programa_nome = 'CC Fácil' 
-programa_versao = "v0.99.2.4"
+programa_versao = "v0.99.2.5"
 
 ## funcoes do SRT output ###################################################
 
@@ -36,25 +35,23 @@ fps = 29.97
 frame = timedelta(seconds=1/fps) # ou 29.97
 segundo = timedelta(seconds = 1) #facilita fazer contas com tempo timedelta
 duracao_video = timedelta(seconds = 15)
-nome_arquivo = "CH BDRG JUL_30 15 CH30N5s"
+nome_arquivo = "CH NOMETEMP MES_DIA"
 
 texto = """
 
-No Globo esporte desse sábado,
+Neste teste espeical dessa string,
 
-tudo sobre a final do Gauchão Raiz!
+várias palavras para testar o programa!
 
 01234567890123456789012345678901234567890123456789012345678901234567890123456789
 
-Nós vamos estar na Arena, onde Grêmio e Caxias disputam o título de campeão!
+Uma cadeia de caracteres longa para testar a quebra de linhas!
 
-E tem também a final do Prêmio Bucha!
+E tem também várias pontuações!
 
-Os nossos jurados vão escolher os melhores gols do campeonato!
+E ainda: Apenas mais um teste de uma linha longa!
 
-E ainda: o Inter vai ao Rio de Janeiro pra segurar a liderança do Brasileirão!
 
-Tudo isso nesse sábado, logo depois do Jornal do Almoço.
 """
 
 def lista_timecode(lista_texto):
@@ -326,7 +323,7 @@ def _quebra_texto_v5(): #talvez o v5 só faça sentido quando tiver futuramente 
         # TODO
         # Testar aqui uma quebra de linha que distribua melhor as palavras. Para não sobrar um CC com uma palavra só quando
         # estiver configurado para quebra de linha em pontuacoes.
-        # Ainda não sei bem como.
+        
                   
         for ii in linha_quebrada:
             tt.append(ii.strip())
